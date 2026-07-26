@@ -1,0 +1,11 @@
+{
+	"manifest_version": 3,
+	"name": "AgentW",
+	"version": "0.3.14",
+	"description": "A local Pi-powered assistant for the current page.",
+	"permissions": ["activeTab", "tabs", "scripting", "sidePanel", "nativeMessaging", "downloads", "clipboardWrite"],
+	"host_permissions": ["http://*/*", "https://*/*"],
+	"background": { "service_worker": "service-worker.js", "type": "module" },
+	"action": { "default_title": "Open AgentW" },
+	"side_panel": { "default_path": "sidepanel.html" }
+}

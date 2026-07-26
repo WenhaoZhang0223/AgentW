@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>AgentW</title>
+		<link rel="stylesheet" href="sidepanel.css" />
+	</head>
+	<body>
+		<div class="shell">
+			<header>
+				<div><small>LOCAL WEB AGENT</small><h1>AgentW <span id="version"></span></h1></div>
+				<nav>
+					<button id="new-chat" type="button" aria-label="新对话">＋</button>
+					<button id="settings-toggle" type="button" aria-label="设置">⋯</button>
+				</nav>
+			</header>
+			<section id="settings-panel" class="settings" hidden>
+				<label for="model-select">模型</label>
+				<select id="model-select"><option value="">正在读取模型…</option></select>
+				<div class="skill-buttons">
+					<button id="skill-zip-button" type="button">上传 Skill ZIP</button>
+					<button id="skill-folder-button" type="button">上传 Skill 文件夹</button>
+				</div>
+				<input id="skill-zip-input" type="file" accept=".zip,application/zip" hidden />
+				<input id="skill-folder-input" type="file" webkitdirectory multiple hidden />
+				<p id="skill-status" class="skill-status">Skill 只允许受限文档资源，不执行脚本。</p>
+				<div id="skill-list" class="skill-list"></div>
+			</section>
+			<details id="task-status" class="status">
+				<summary><i></i><span id="status-text">正在连接本地 AgentW…</span></summary>
+				<p id="authorization-text">正在同步当前网页…</p>
+			</details>
+			<main id="conversation" aria-live="polite" aria-label="对话"></main>
+			<form id="composer">
+				<label class="sr-only" for="prompt">向 AgentW 发送消息</label>
+				<textarea id="prompt" rows="1" placeholder="询问网页内容，或让 AgentW 完成任务…" required></textarea>
+				<div class="composer-actions">
+					<button id="stop" type="button" disabled>停止</button>
+					<button id="send" class="primary" type="submit">发送</button>
+				</div>
+			</form>
+		</div>
+		<script type="module" src="sidepanel.js"></script>
+	</body>
+</html>

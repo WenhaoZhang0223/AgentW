@@ -1,0 +1,41 @@
+{
+	"name": "@earendil-works/agentw",
+	"version": "0.81.1",
+	"private": true,
+	"type": "module",
+	"bin": {
+		"agentw-host": "./dist/host/main.js"
+	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
+	"scripts": {
+		"clean": "shx rm -rf dist",
+		"build": "node scripts/build.mjs",
+		"compile:host": "node scripts/compile-host.mjs",
+		"test": "vitest --run"
+	},
+	"dependencies": {
+		"@earendil-works/pi-coding-agent": "^0.81.1",
+		"exceljs": "4.4.0",
+		"typebox": "1.1.38",
+		"yaml": "2.9.0",
+		"yauzl": "3.4.0",
+		"yazl": "3.3.1"
+	},
+	"devDependencies": {
+		"@types/chrome": "0.2.2",
+		"@types/node": "24.12.4",
+		"@types/yauzl": "3.4.0",
+		"@types/yazl": "3.3.1",
+		"happy-dom": "20.11.0",
+		"shx": "0.4.0",
+		"vitest": "4.1.9"
+	},
+	"engines": {
+		"node": ">=22.19.0"
+	}
+}
