@@ -4,6 +4,9 @@
 
 ### 住进 Edge 侧边栏的本地网页智能体
 
+**看得懂网页 · 会自动翻页 · 能整理数据 · 直接导出 Excel**
+
+基于 [pi-mono](https://github.com/earendil-works/pi-mono) 构建
 
 <br />
 
@@ -21,9 +24,11 @@
 
 ## ✨ AgentW 是什么？
 
-AgentW 是一款面向 **Windows 11 + Microsoft Edge** 的本地网页侧边栏 Agent。
+AgentW 是一款基于 **pi-mono** 开发、面向 **Windows 11 + Microsoft Edge** 的本地网页侧边栏 Agent。
 
-它复用了 Pi 的模型、会话、工具和 Skill 能力，可以理解自然语言任务，并在获得授权后读取当前网页、执行翻页、整理信息以及生成文件。
+它在 pi-mono 的基础上复用了 Pi 的多模型接入、Agent 运行时、会话、工具调用和 Skill 系统，并增加了 Edge Side Panel、Windows Native Messaging Host 以及网页自动化能力。
+
+简单来说：**pi-mono 提供 Agent 的大脑，AgentW 让它真正走进浏览器干活。** 🧠
 
 比如，你只需要输入：
 
@@ -96,6 +101,8 @@ Skill 安装带有安全校验：
 
 ## 🏗️ 工作原理
 
+AgentW 没有重新造一套 Agent 框架，而是在 pi-mono 的核心能力之上增加浏览器交互层：
+
 ```text
 ┌──────────────────────────────┐
 │      Microsoft Edge 网页      │
@@ -113,6 +120,7 @@ Skill 安装带有安全校验：
                │ Pi RPC
 ┌──────────────▼───────────────┐
 │   pi-agent / pi-ai / Skills   │
+│         来自 pi-mono           │
 └──────────────────────────────┘
 ```
 
@@ -198,6 +206,8 @@ AgentW 可以替你操作网页，但不会替你跨过安全红线。
 简单来说：**能自动做的就自动做，该由你决定的绝不抢方向盘。** 🛡️
 
 ## 📦 Monorepo 结构
+
+本项目基于 pi-mono 的 Monorepo 结构开发。AgentW 作为独立的工作区包，与 Pi 的核心模块协同运行。
 
 | Package | 用途 |
 | --- | --- |
